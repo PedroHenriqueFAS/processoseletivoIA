@@ -19,7 +19,7 @@ A técnica aplicada em `optimize_model.py` foi a **Quantização de Faixa Dinâm
 - **Acurácia de Validação Final:** 99,03% 
 - **Tamanho do arquivo original (`model.h5`):** 1,14 MB
 - **Tamanho do arquivo otimizado (`model.tflite`):** 102 KB
-- **Comparação Numérica:** Houve uma redução extrema de footprint. O modelo otimizado (`.tflite`) ficou aproximadamente **11 vezes menor** que o original (`.h5`), caindo de 1,14 MB para apenas 103 KB. Isso valida o sucesso da quantização para viabilizar o embarque da IA em dispositivos com restrição severa de armazenamento.
+- **Comparação Numérica:** Houve uma redução extrema de footprint. O modelo otimizado (`.tflite`) ficou aproximadamente **11 vezes menor** que o original (`.h5`), caindo de 1,14 MB para apenas 102 KB. Isso valida o sucesso da quantização para viabilizar o embarque da IA em dispositivos com restrição severa de armazenamento.
 
 ### 5️⃣ Comentários Adicionais
 Uma decisão técnica vital tomada durante o projeto foi a estruturação de caminhos relativos usando a biblioteca `os`. Inicialmente, o uso de caminhos absolutos gerou um problema de *encoding* no sistema operacional hospedeiro (Windows), onde caracteres especiais no diretório-raiz impediam a leitura do artefato pelo interpretador C++ interno do TF Lite durante a otimização. A resolução através do `os.path.join` garantiu a isolação do ambiente e tornou o script reproduzível em qualquer máquina ou sistema de CI/CD (como o GitHub Actions). 
